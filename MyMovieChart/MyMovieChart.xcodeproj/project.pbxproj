@@ -13,6 +13,8 @@
 		D8DB21F928E6FA57008A5EFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DB21F728E6FA57008A5EFC /* Main.storyboard */; };
 		D8DB21FB28E6FA58008A5EFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8DB21FA28E6FA58008A5EFC /* Assets.xcassets */; };
 		D8DB21FE28E6FA58008A5EFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DB21FC28E6FA58008A5EFC /* LaunchScreen.storyboard */; };
+		D8DB220628E6FBB1008A5EFC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB220528E6FBB1008A5EFC /* ListViewController.swift */; };
+		D8DB220828E70850008A5EFC /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB220728E70850008A5EFC /* MovieVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D8DB21FA28E6FA58008A5EFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8DB21FD28E6FA58008A5EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8DB21FF28E6FA58008A5EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8DB220528E6FBB1008A5EFC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D8DB220728E70850008A5EFC /* MovieVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +62,10 @@
 			children = (
 				D8DB21F128E6FA57008A5EFC /* AppDelegate.swift */,
 				D8DB21F328E6FA57008A5EFC /* SceneDelegate.swift */,
+				D8DB220528E6FBB1008A5EFC /* ListViewController.swift */,
 				D8DB21F528E6FA57008A5EFC /* ViewController.swift */,
 				D8DB21F728E6FA57008A5EFC /* Main.storyboard */,
+				D8DB220728E70850008A5EFC /* MovieVO.swift */,
 				D8DB21FA28E6FA58008A5EFC /* Assets.xcassets */,
 				D8DB21FC28E6FA58008A5EFC /* LaunchScreen.storyboard */,
 				D8DB21FF28E6FA58008A5EFC /* Info.plist */,
@@ -140,7 +146,9 @@
 			files = (
 				D8DB21F628E6FA57008A5EFC /* ViewController.swift in Sources */,
 				D8DB21F228E6FA57008A5EFC /* AppDelegate.swift in Sources */,
+				D8DB220628E6FBB1008A5EFC /* ListViewController.swift in Sources */,
 				D8DB21F428E6FA57008A5EFC /* SceneDelegate.swift in Sources */,
+				D8DB220828E70850008A5EFC /* MovieVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
