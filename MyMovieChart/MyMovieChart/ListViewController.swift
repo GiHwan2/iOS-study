@@ -33,6 +33,8 @@ class ListViewController: UITableViewController{
         // 주어진 행에 맞는 데이터 소스를 읽어온다.
         let row = self.list[indexPath.row]
         
+        NSLog("제목:\(row.title!),호출된 행번호: \(indexPath.row)")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! MovieCell
         
         cell.title?.text = row.title
@@ -40,11 +42,10 @@ class ListViewController: UITableViewController{
         cell.opendate?.text = row.opendate
         cell.rating?.text = "\(row.rating!)"
         
-        let url: URL! = URL(string:  row.thumbnail!)
+        DispatchQueue.main.async(execute: {
+            cell.thumbnail.image = self.getThumbnailImage(indexPath.row)
+        })
         
-        let imageData = try! Data(contentsOf: url)
-        
-        cell.thumbnail.image = UIImage(data: imageData)
         return cell
     }
     
@@ -57,7 +58,7 @@ class ListViewController: UITableViewController{
     }
     
     func callMovieAPI(){
-        let url = "http://swiftapi.rubypaper.co.kr:2029/hoppin/movies?version=1&page=\(self.page)&count=10&genreId=&order=releasedateasc"
+        let url = "http://swiftapi.rubypaper.co.kr:2029/hoppin/movies?version=1&page=\(self.page)&count=30&genreId=&order=releasedateasc"
         let apiURI: URL! = URL(string: url)
         
         let apidata = try! Data(contentsOf: apiURI)
@@ -82,6 +83,10 @@ class ListViewController: UITableViewController{
                 mvo.detail = r["linkUrl"] as? String
                 mvo.rating = ((r["ratingAverage"] as? NSString)?.doubleValue)
                 
+//                let url: URL! = URL(string:  mvo.thumbnail!)
+//                let imageData = try! Data(contentsOf: url)
+//                mvo.thumbnailImage = UIImage(data: imageData)
+                
                 self.list.append(mvo)
                 
                 let totalCount = (hoppin["totalCount"] as? NSString)!.integerValue
@@ -89,10 +94,24 @@ class ListViewController: UITableViewController{
                 if(self.list.count >= totalCount){
                     self.moreBtn.isHidden = true
                 }
+                
             }
         } catch {
             NSLog("Parse Error!!")
         }
     }
     
+    func getThumbnailImage(_ index: Int) -> UIImage{
+        let mvo = self.list[index]
+        
+        if let savedImage = mvo.thumbnailImage{
+            return savedImage
+        } else {
+            let url: URL! = URL(string: mvo.thumbnail!)
+            let imageData = try! Data(contentsOf: url)
+            mvo.thumbnailImage = UIImage(data:imageData)
+            
+            return mvo.thumbnailImage!
+        }
+    }
 }
